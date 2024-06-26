@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ImcModel;
 use Illuminate\Http\Request;
 
 class imcController extends Controller
@@ -45,5 +46,23 @@ class imcController extends Controller
 
         return view("imc.index", compact('resultado'));
 
+    }
+
+    public function store(Request $request){
+
+        $data = $request->all();
+
+        $peso = $data['peso'];
+        $altura = $data['altura'];
+        $nome = $data['nome'];
+
+        $imc = new ImcModel();
+        $imc->nome = $nome;
+        $imc->altura = $altura;
+        $imc->peso = $peso;
+
+        $imc->save();
+
+        return redirect('/imc/calcularImc');
     }
 }
