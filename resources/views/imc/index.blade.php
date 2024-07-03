@@ -23,6 +23,7 @@
   </div>
   <button type="submit" class="btn btn-primary">Calcular</button>
 </form>
+
 </div>
 
 <label>RESULTADO</label><br>
